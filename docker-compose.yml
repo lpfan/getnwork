@@ -1,0 +1,36 @@
+version: '2'
+
+
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    environment:
+      - NGINX_HOST=localhost
+      - NGINX_PORT=80
+    links:
+    - web:web
+    volumes_from:
+    - web
+
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=phoenix
+      - POSTGRES_PASSWORD=phoenix
+      - POSTGRES_DB=getnwork
+      - POSTGRES_PORT=5432
+    ports:
+      - 5432:5432
+
+  web:
+    build: ./webapp
+    working_dir: /app
+    volumes:
+      - "./webapp:/app"
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    command: /usr/local/bin/gunicorn webapp.wsgi:application -w 2 -b :8000
