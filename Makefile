@@ -1,14 +1,14 @@
 makemigrations:
-	docker-compose run --rm --service-ports web python manage.py makemigrations
+	docker-compose run --rm --service-ports web pypy3 manage.py makemigrations
 
 migrate:
-	docker-compose run --rm --service-ports web python manage.py migrate
+	docker-compose run --rm --service-ports web pypy3 manage.py migrate
 
 startdevserver:
-	docker-compose run --rm --service-ports web python manage.py runserver 0.0.0.0:8000
+	docker-compose run --rm --service-ports web pypy3 manage.py runserver 0.0.0.0:8000
 
 createsuperuser:
-	docker-compose run --rm --service-ports web python manage.py createsuperuser
+	docker-compose run --rm --service-ports web pypy3 manage.py createsuperuser
 
 collectstatic:
 	docker-compose run --rm --service-ports web pypy3 manage.py collectstatic
