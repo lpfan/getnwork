@@ -1,4 +1,4 @@
-FROM pypy:3-onbuild
+FROM python:latest
 
 
 RUN mkdir /app
