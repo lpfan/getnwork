@@ -2,3 +2,4 @@ Django==1.11.1
 djangorestframework
 psycopg2
 ipdb
+gunicorn
