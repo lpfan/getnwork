@@ -1,18 +1,13 @@
 <template>
   <div id="app">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <app-header></app-header>
-          <router-view></router-view>
-        </div>
-      </div>
-    </div>
+      <app-header></app-header>
+      <app-footer></app-footer>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
 
 export default {
   name: 'app',
@@ -22,11 +17,12 @@ export default {
     }
   },
   components: {
-    appHeader: Header
+    appHeader: Header,
+    appFooter: Footer
   }
 }
 </script>
 
-<style>
-
+<style lang="scss">
+  @import '~bulma/bulma.sass';
 </style>

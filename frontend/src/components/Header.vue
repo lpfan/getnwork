@@ -1,11 +1,8 @@
 <template>
   <header>
-    <div class="container clearfix">
-      <h1 id="logo">
-        Черчение вырезание
-      </h1>
       <app-main-menu></app-main-menu>
-    </div>
+      <h1 id="logo">
+      </h1>
   </header>
 </template>
 
